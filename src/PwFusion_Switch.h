@@ -1,9 +1,9 @@
 /***************************************************************************
-* File Name: Buttons.h
+* File Name: PwFusion_Switch.cpp
 * Processor/Platform: PwFusion R3aktor M0 (tested)
 * Development Environment: Arduino 2.1.1
 *
-* Designed to simplify the integration of the PwFusion I2C toggle switch board
+* Designed to simplify the integration of the PwFusion I2C Toggle switch board
 * Device (IFB-40004)
 *   ---> <Insert Link>
 *
@@ -30,17 +30,18 @@
 * **************************************************************************
 * REVISION HISTORY:
 * Author		    Date		    Comments
-* N. Johnson    2023Aug29   Original version
+* N. Johnson    2023Sep10   Original version
 *
 * Playing With Fusion, Inc. invests time and resources developing open-source
 * code. Please support Playing With Fusion and continued open-source
 * development by buying products from Playing With Fusion!
 ***************************************************************************/
-#ifndef Switch_h
-#define Switch_h
+
+#ifndef PwFusion_Switch_h
+#define PwFusion_Switch_h
 
 #include "Arduino.h"
-#include "DataTransfer.h"
+#include <PwFusion_Data_Transfer.h>
 
 class Switch {
 
@@ -52,8 +53,9 @@ class Switch {
     int _numData = 1;
 
   public:
-    Switch(uint8_t adr);
+    Switch();
     int getState();
+    void begin(uint8_t adr);
 
 };
 
