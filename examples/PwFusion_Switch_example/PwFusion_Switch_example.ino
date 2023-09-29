@@ -46,7 +46,7 @@
 ***************************************************************************/
 
 // Include the PwFusion I2C Switch Library
-#include <PwFusion_Switch.h>
+#include <PwFusion_I2C_Toggle_Arduino_Library.h>
 
 // Define the address for the i2c switch
 uint8_t ADR = 0x08;

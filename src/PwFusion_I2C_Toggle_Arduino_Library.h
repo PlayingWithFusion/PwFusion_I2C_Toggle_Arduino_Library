@@ -1,5 +1,5 @@
 /***************************************************************************
-* File Name: PwFusion_Switch.cpp
+* File Name: PwFusion_I2C_Toggle_Arduino_Library.cpp
 * Processor/Platform: PwFusion R3aktor M0 (tested)
 * Development Environment: Arduino 2.1.1
 *
@@ -36,19 +36,27 @@
 * code. Please support Playing With Fusion and continued open-source
 * development by buying products from Playing With Fusion!
 ***************************************************************************/
-#include "PwFusion_Switch.h"
+
+#ifndef PwFusion_I2C_Toggle_Arduino_Library_h
+#define PwFusion_I2C_Toggle_Arduino_Library_h
+
 #include "Arduino.h"
 #include <PwFusion_Data_Transfer.h>
 
-Switch::Switch() {}
+class Switch {
 
-void Switch::begin(uint8_t adr) {
-  _adr = adr;
+  private:
+    uint8_t _adr;
+    DataTransfer* transfer;
 
-  transfer = new DataTransfer();
-  transfer->begin(_adr, _numData);
-}
+    uint8_t reg_STATE = 0x00;
+    int _numData = 1;
 
-int Switch::getState() {
-  return transfer->getData(reg_STATE);
-}
+  public:
+    Switch();
+    int getState();
+    void begin(uint8_t adr);
+
+};
+
+#endif
