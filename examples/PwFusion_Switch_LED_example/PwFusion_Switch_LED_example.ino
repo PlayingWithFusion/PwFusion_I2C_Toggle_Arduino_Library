@@ -53,7 +53,8 @@
 #include <PwFusion_I2C_Toggle_Arduino_Library.h>
 
 // Define the address for the i2c switch
-uint8_t ADR = 0x08;
+uint8_t ADR = 0x13; // uncut address
+// uint8_t ADR = 0x14;  // cut address
 
 // Create a new Switch object
 Switch sw;
